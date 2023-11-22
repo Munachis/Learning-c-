@@ -3,16 +3,143 @@ using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Security.Cryptography.X509Certificates;
+using System;
 
+internal class OOP
+{
+    int id;
+    string name;
+    float salary;
+    
+    public void add(int id,string name,float salary)
+    {
+        this.id = id;
+        this.name = name;
+        this.salary = salary;
+    }
+    public void output()
+    {
+        Console.WriteLine($"{id} {name} {salary}");
+    }
+    static void yain(string[] args)
+    {
+        OOP oop = new OOP();
+         OOP oop1 = new OOP();
+        oop1.add(1, "Muna", 2500);
+        oop1.output();
+        oop.add(1,"Muna", 2500);
+        oop.output();
+    }
+}
+internal class Employee
+{
+    int id;
+    string name;
+    float salary;
+
+    public  Employee(int id, string name, float salary)
+    {
+        this.id = id;
+        this.name = name;
+        this.salary = salary;
+    }
+    public void output()
+    {
+        Console.WriteLine($"{id} {name} {salary}");
+    }
+    static void tain(string[] args)
+    {
+        Employee emp1 = new Employee(1,"Godrice",234);
+        Employee emp2 = new Employee(2,"Iwase",233);
+        
+        emp1.output();
+        
+        emp2.output();
+    }
+}
+internal class Employer
+{
+    //Static Key Word Explained
+    public int id;
+    public string name;
+    public static float tax = 7.5F;
+    public  Employer(int id, string name, float tax)
+    {
+          this.id=id;
+        this.name = name;
+        
+    }
+    public void output()
+    {
+        Console.WriteLine($"{id} {name} {tax}");
+    }
+    public static void yain(string[] args)
+    {
+        Employer employer = new Employer(101, "Gaadi",0);
+        employer.output();
+    }
+}
+public static class Force
+{
+    //Static class Examples
+    public static float Mass;
+    public static float Acceleration;
+
+    public static float Compute(float Mass, float Acceleration)
+    {
+        return Mass*Acceleration;
+    }
+    
+}
+public class Output
+{
+    //Running the static class above
+    public static void Dain(string[] args)
+    {
+        Force.Mass = 10;
+        Force.Acceleration = 20;
+        Console.WriteLine(Force.Compute(Force.Mass, Force.Acceleration));
+    }
+}
+public class LearnEnums
+{
+    public enum studentType
+    {
+        ADSE,SHORT_COURSE,NETWORKING
+    }
+    public int id;
+    public string name;
+    public studentType type;
+    
+    public LearnEnums(int id,string name, studentType type)
+    {
+        this.id = id;
+        this.name = name;
+        this.type = type;
+    }
+    public void output()
+    {
+        Console.WriteLine($"{id} {name} {type}");
+    }
+    private static void Main(string[] args)
+    {
+        LearnEnums learnEnums =  new LearnEnums(101,"Gaadi",studentType.ADSE);
+        //learnEnums.output();
+        foreach(string t in Enum.GetNames(typeof(studentType)))
+        {
+            Console.WriteLine(t);
+        }
+    }
+}
 internal class Work
 {
     
-    static void Main(string[] args)
+    static void tain(string[] args) 
     {
         //var cities = new SortedSet<string>();
 
         //states();
-        Console.WriteLine(ParrotTrouble(true, 7)); 
+        //Console.WriteLine(ParrotTrouble(true, 7)); 
     }
 
     static string ParrotTrouble(bool options, int no)
