@@ -5,6 +5,111 @@ using System.Diagnostics.CodeAnalysis;
 using System.Security.Cryptography.X509Certificates;
 using System;
 
+
+internal class Customers
+{
+    public int id = 1;
+    public string name = "Alice";
+    public double TotalAmountSpent = 150;
+    public int TotalProductPurchased = 1;
+    public double DiscountApplied1 = 0;
+    public int DiscountApplied2 = 0;
+    public double newPrice = 0;
+
+    public Customers(int id,string name,double TotalAmountSpent,int TotalAmountPurchased,double DiscountApplied1,int DiscountApplied2,int newPrice) 
+    { 
+        this.id = 1;
+        this.name = "Alice";
+        this.TotalAmountSpent = 2002;
+        this.TotalProductPurchased = 1;
+        this.DiscountApplied1 = 0;
+        this.DiscountApplied2 = 0;
+        this.newPrice = 0;
+    }
+
+    public void Discount1()
+    {
+        if (TotalProductPurchased > 4)
+        {
+            double discountee = 0.1 * TotalAmountSpent;
+            DiscountApplied1 += discountee;
+        }
+    } public void Discount2()
+    {
+        if (TotalAmountSpent > 200)
+        {
+            DiscountApplied2 = 25;
+        }
+        
+    }
+    public void CNewPrice()
+    {
+        newPrice = TotalAmountSpent - DiscountApplied1 - DiscountApplied2;
+    }
+    public static void Main(string[] args)
+    {
+        Customers customers = new Customers(1,"Alice", 200, 2,0,0,0);
+        customers.Discount1();
+        customers.Discount2();
+        customers.CNewPrice();
+        Console.WriteLine($"Welcome {customers.name} this is your new price {customers.newPrice}");
+    }
+}
+internal class GPT
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public double TotalAmountSpent { get; set; }
+    public int TotalProductPurchased { get; set; }
+    public double DiscountApplied1 { get; set; }
+    public int DiscountApplied2 { get; set; }
+    public double NewPrice { get; set; }
+
+    public GPT(int id, string name, double totalAmountSpent, int totalProductPurchased,
+               double discountApplied1, int discountApplied2, double newPrice)
+    {
+        Id = id;
+        Name = name;
+        TotalAmountSpent = totalAmountSpent;
+        TotalProductPurchased = totalProductPurchased;
+        DiscountApplied1 = discountApplied1;
+        DiscountApplied2 = discountApplied2;
+        NewPrice = newPrice;
+    }
+
+    public void ApplyDiscount1()
+    {
+        if (TotalProductPurchased > 4)
+        {
+            double discountAmount = 0.1 * TotalAmountSpent;
+            DiscountApplied1 += discountAmount;
+        }
+    }
+
+    public void ApplyDiscount2()
+    {
+        if (TotalAmountSpent > 200)
+        {
+            DiscountApplied2 = 25;
+        }
+    }
+
+    public void CalculateNewPrice()
+    {
+        NewPrice = TotalAmountSpent - DiscountApplied1 - DiscountApplied2;
+    }
+
+    public static void lain(string[] args)
+    {
+        GPT gpt = new GPT(1, "Alice", 200, 2, 0, 0, 0);
+        gpt.ApplyDiscount1();
+        gpt.ApplyDiscount2();
+        gpt.CalculateNewPrice();
+
+        Console.WriteLine($"Welcome {gpt.Name}, this is your new price: {gpt.NewPrice}");
+    }
+}
+
 internal class OOP
 {
     int id;
@@ -33,6 +138,7 @@ internal class OOP
 }
 internal class Employee
 {
+    // constructors??
     int id;
     string name;
     float salary;
@@ -55,6 +161,71 @@ internal class Employee
         emp1.output();
         
         emp2.output();
+    }
+}
+public class Worker
+{
+    //C #PROPERTIES
+    private string name;
+    public string Name
+    {
+        //If you want your class to be read only remove the set
+        get { return name; }
+        set { name = value; }
+
+    }
+
+}
+public class Worked
+{
+    //INHERITANCE
+    public float salary = 6000;
+}
+public class Manager : Worked
+{
+    public float bonus = 1500;
+}
+
+public class Animal
+{
+    public void eats()
+    {
+        Console.WriteLine("Eating is my nature ");
+    }
+}
+public class Lion : Animal
+{
+    public void sound()
+    {
+        Console.WriteLine("I only roar");
+    }
+}
+public class Cub : Lion
+{
+    public void chow()
+    {
+        Console.WriteLine("I only chow soft meat");
+    }
+}
+public class Maining
+{
+    public static void vain(string[] args)
+    {
+        //Printing the c# Properties and Inheritance classes respectively
+       Cub cb = new Cub();
+        cb.eats();
+        cb.sound();
+        cb.chow();
+
+
+        Worker worker = new Worker();
+        Manager mg = new Manager();
+        Console.WriteLine($"Salary: {mg.salary}");
+        Console.WriteLine($"Bonus: {mg.bonus}");
+
+
+        worker.Name = "Doris";
+        Console.WriteLine($"Name: {worker.Name}");
     }
 }
 internal class Employer
@@ -121,7 +292,7 @@ public class LearnEnums
     {
         Console.WriteLine($"{id} {name} {type}");
     }
-    private static void Main(string[] args)
+    private static void fain(string[] args)
     {
         LearnEnums learnEnums =  new LearnEnums(101,"Gaadi",studentType.ADSE);
         //learnEnums.output();
